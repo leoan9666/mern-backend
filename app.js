@@ -1,5 +1,6 @@
 const express = require("express");
 const placeRoutes = require("./routes/place-routes");
+const userRoutes = require("./routes/user-routes");
 
 const HttpError = require("./models/http-model");
 
@@ -8,6 +9,7 @@ const app = express();
 app.use(express.json());
 
 app.use("/api/places", placeRoutes);
+app.use("/api/users", userRoutes);
 
 app.use((req, res, next) => {
   throw new HttpError("Could not find this route.", 404);
